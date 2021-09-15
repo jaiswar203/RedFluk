@@ -1,0 +1,129 @@
+.main-movies {
+  padding: 8px;
+  .cards {
+    display: grid;
+    @media screen and (max-width:500px) {
+      &{
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0.6rem;
+      }
+    }
+    &-poster {
+      max-width: 100%;
+      height: auto;
+
+      img {
+        width: 100%;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+@include for_smaller {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width:400px) {
+  .cards{
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.6rem;
+  }
+}
+
+@media screen and (min-width:650px) {
+  .cards{
+    grid-template-columns: repeat(7,1fr);
+  }
+}
+
+@media screen and (min-width:1600px) {
+  .cards{
+    grid-template-columns: repeat(9,1fr);
+  }
+}
+
+.pagination{
+  background-color: rgba(54,72,52,0.2);
+  .paginate{
+    color: white;
+  }
+}
+
+.no-result{
+  h5{
+    color: $primary-color;
+  }
+}
+
+// download
+
+.movies-download{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  &-box{
+    position: relative;
+    border: 1px solid green;
+    width: 25rem;
+    height: 30rem;
+    background-color: black;
+    box-shadow: 
+      inset 5px 5px 5px 5px grey ,
+      inset -5px -5px 5px 5px grey ;
+
+    .download-img{
+      margin-top: 1rem;
+      width: 100%;
+      img{
+        height: 11rem;
+        border-radius: 50%;
+        margin-left: 35%;
+      }
+    }
+
+    .download-data{
+      &-title{
+        display: flex;
+        flex-direction: row;
+        margin: 5px 0 0 28%;
+
+        h4,h6{
+          margin-right: 10px;
+        }
+        h5{
+          color: $primary-color;
+          margin-top: 3px;
+        }
+        p{
+          margin-top: -1px;
+        }
+      }
+
+      &-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+
+        button{
+          width: 6rem;
+          height: 3rem;
+          border-radius: 5px;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.animated-title{
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  color: red;
+  margin-bottom: 1rem;
+}

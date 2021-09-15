@@ -1,0 +1,20 @@
+.episode-list{
+    border: 1px solid green;
+    width: 70%;
+    height: auto;
+    position: relative;
+    left: 15%;
+    margin-top: 15%;
+
+    &-download{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+
+        .download-link{
+            text-decoration: none;
+            color: $primary-color;
+        }
+    }
+}

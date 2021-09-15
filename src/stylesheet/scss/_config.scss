@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%;
+}
+
+body{
+    ::selection{
+        color: red;
+        background-color: transparent;
+    }
+    background-color: #151515;
+    color: white;
+}
+
+// variables
+
+$primary-color: rgb(228, 27, 27);
+$secondary-color: white;
+$dark:black;
+$light-dark: #444040;
+
+@mixin dark-gradient {
+    background-image: linear-gradient(to left top, #cc1a2f, #c20045, #b10057, #9a0066, #7f1371);
+}
+
+@mixin icon-color {
+    background:-moz-linear-gradient(top, #CC1A2F 0%, #7F1371 100%); 
+    background: -webkit-linear-gradient(top, #CC1A2F 0%,#7F1371 100%); 
+    background: linear-gradient(to bottom, #CC1A2F 0%,#7F1371 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color:transparent;
+}
+
+@function set-text-color($color){
+    @if(lightness($color) > 40%){
+        @return #000;
+    }@else{
+        @return #fff;
+    }
+}
+
+@mixin transition-ease{
+    transition: all 5s ease-in-out;
+}
+
+@mixin transition {
+    transition: all 1s ease-in-out;
+}
+
+@mixin button-transition {
+    transition: all 0.8s ease-in-out;
+}
+
+
+@mixin media-md {
+    @media screen and (min-width:815px) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media screen and (min-width:1024px) {
+        @content;
+    }    
+}
+
+@mixin media-xl {
+    @media screen and (min-width: 1600px) {
+        @content;
+    }
+}
+
+@mixin media-ph {
+    @media screen and (max-width:815px) {
+        @content;
+    }
+}
+
+
+@mixin for_smaller {
+    @media screen and (max-width: 500px) {
+      @content;
+    }
+  }
+  
+@mixin for_larger {
+    @media screen and (min-width: 500px) {
+      @content;
+    }
+ }
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $primary-color;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(184, 55, 55);
+  }
+
+  .mdl-grid {
+	max-width: 600px;
+}
+.mdl-card__media {
+	margin: 0;
+}
+.mdl-card__media > img {
+	max-width: 100%;
+}
+.mdl-card__actions {
+	display: flex;
+	box-sizing:border-box;
+	align-items: center;
+}
+.mdl-card__actions > .mdl-button--icon {
+	margin-right: 3px;
+	margin-left: 3px;
+}

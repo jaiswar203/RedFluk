@@ -1,0 +1,224 @@
+/**** header ****/
+
+.menu-btn{
+    position: absolute;
+    z-index: 120;
+    left: 1rem;
+    top: 0.2rem;
+    height: 20px;
+    width: 28px;
+    cursor: pointer;
+    @include button-transition;
+
+    &_burger{
+        position: absolute;
+        right: 0;
+        top: 0.5rem;
+        width: 28px;
+        height: 3px;
+        @include dark-gradient;
+        @include button-transition;
+
+        &::before{
+            content: '';
+            position: absolute;
+            
+            top: -8px;
+            width: 28px;
+            height: 3px;
+            @include dark-gradient;
+            @include button-transition;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            
+            top: 8px;
+            width: 28px;
+            height: 3px;
+            @include dark-gradient;
+            @include button-transition;
+        }
+
+        &.open{
+            // transform: rotate(720deg);
+            background: transparent;
+
+            &::before{
+                transform: rotate(45deg) translate(5px,8px);
+            }
+            &::after{
+                transform: rotate(-45deg) translate(3px,-7px);
+            }
+        }
+    }
+}
+
+.nav{
+    position: fixed;
+    color: $primary-color;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    opacity: 0.98;
+    visibility: hidden;
+
+    &.open{
+        visibility: visible;
+    }
+
+    .menu-nav{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        background-color: $dark;
+        list-style-type: none;
+        padding-right: 1.2rem;
+        transform: translateX(-100%);
+        @include transition;
+
+        &.open{
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        &_item{
+            transform: translateX(100vw);
+            
+            @include transition;
+
+            &-links{
+                display: inline-block;
+                font-size: 1.5rem;
+                text-decoration: none;
+                color: $secondary-color;
+                text-transform: uppercase;
+                padding: 2rem 0;
+                font-weight: 300;
+                @include transition;
+                
+                &:hover{
+                    color: $primary-color;
+                }
+            }
+
+            &.open{
+                transform: translateX(0);
+            }
+        }
+        
+    }
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.8rem;
+
+    h3{
+        color: $primary-color;
+
+        span{
+            color: $light-dark;
+        }
+    }
+}
+
+.search-btn{
+    position: absolute;
+    // z-index: 999;
+    right: 1rem;
+    top: 0.2rem;
+    cursor: pointer;
+    display: block;
+    @include icon-color;
+    @include button-transition;
+    
+}
+.cancel-btn{
+    position: absolute;
+    z-index: 999;
+    right: 1rem;
+    top: 0.3rem;
+    cursor: pointer;
+    display: none;
+    @include icon-color;
+    @include button-transition;
+}
+
+.search-btn.hide{
+    display: none;
+    @include button-transition;
+}
+.cancel-btn.hide{
+    display: none;
+    @include button-transition;
+}
+.cancel-btn.show{
+    display: block;
+    @include button-transition;
+}
+
+
+.form{
+    display: none;
+    position: absolute;
+    height: 27px;
+    padding: 2px;
+    background: #1e232b;
+    min-width: 18% !important;
+    margin: 0px 15px 0px 27px;
+    border-radius: 3px;
+    border: 1px solid rgba(155, 155, 155, 0.2);
+    top: 40px;
+    right: 0;
+    @include transition-ease;
+
+    &.active{
+        display: flex;
+    }
+
+    .search-data{
+      width: 100%;
+      height: 100%;
+      padding: 0 10px;
+      color: #fff;
+      outline: none;
+      font-size: 17px;
+      border: none;
+      font-weight: 500;
+      background: none;
+    }
+    button{
+      padding: 0 15px;
+      color: #fff;
+      font-size: 17px;
+      background: #ff3d00;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      &:hover{
+        background: #e63600;
+      }
+    }
+  }
+
+  .form1{
+      display: none;
+  }
+
+@for $i from 0 to 6{
+    .menu-nav_item:nth-child(#{$i}){
+        transition-delay: ($i * 0.1s) + 0.15s;
+    }
+}
+
+.scroll{
+    background: $dark;
+    top: -1px;
+}

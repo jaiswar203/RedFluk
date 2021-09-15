@@ -1,0 +1,108 @@
+/*** Navbar ***/ 
+
+@include media-md {
+  .menu-btn {
+    visibility: hidden;
+  }
+  .nav {
+    visibility: visible;
+
+    .menu-nav {
+      display: inline-block;
+      position: fixed;
+      transform: translateX(0);
+      height: 10%;
+      background: transparent;
+      text-align: center;
+      top: -1.8rem;
+      width: 69%;
+      right: 25%;
+      &_item {
+        display: inline;
+        padding: 0.8rem;
+
+        &-links {
+          color: $secondary-color;
+          font-size: 95%;
+          padding: 2.3rem 0;
+          font-weight: 500;
+
+        }
+      }
+    }
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.8rem;
+    margin: 3px 0px 0px -85%;
+  }
+  .search-btn {
+    visibility: hidden;
+  }
+  .cancel-btn {
+    visibility: hidden;
+  }
+  .form1 {
+    display: inline-flex;
+    position: absolute;
+    height: 1.5rem;
+    padding: 1px;
+    background: #1e232b;
+    /* min-width: 12%; */
+    margin: 0px 1.5rem 0 2.7rem;
+    border-radius: 3px;
+    border: 1px solid rgba(155, 155, 155, 0.2);
+    top: 0.4rem;
+    right: -1rem;
+    width: 27%;
+
+    .search-data {
+      width: 100%;
+      height: 100%;
+      padding: 0 10px;
+      color: #fff;
+      outline: none;
+      font-size: 17px;
+      border: none;
+      font-weight: 500;
+      background: none;
+    }
+    button {
+      padding: 0 15px;
+      color: #fff;
+      font-size: 17px;
+      background: $primary-color;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      &:hover {
+        background: #e63600;
+      }
+    }
+  }
+}
+
+
+/*** main ***/
+
+@include media-md{
+  .home{
+    bottom: 2.78rem;
+  }
+  .carousel{
+    display: none;
+  }
+}
+@include media-ph{
+  .home{
+    bottom: 3.16rem;
+  }
+  .home{
+    display: none;
+  }
+}
+
+
+  

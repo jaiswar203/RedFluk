@@ -1,0 +1,125 @@
+@import "./Carousel/carousel";
+
+
+
+
+.main {
+  padding: 8px;
+  h5 {
+    color: white;
+    font-size: 1rem;
+  }
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  &-container {
+    &-section {
+      &-title {
+        i {
+          position: absolute;
+          right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include for_smaller {
+  .main {
+    img {
+      border-radius: 3px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    p{
+      i{
+        font-size: 2px;
+        position: relative;
+        bottom: 2px;
+        left: -2px;
+        color: $primary-color;
+      }
+    }
+    }
+  }
+
+
+
+
+@include for_larger {
+  .main {
+    h5 {
+      font-size: 18px;
+    }
+    img {
+      max-width: 100%;
+    //   height: 12rem;
+    }
+  }
+}
+
+footer {
+  margin-top: 2rem;
+  position: sticky;
+  padding: 10px;
+
+  .footer {
+    .social-icons {
+      // display: flex;
+      font-size: 1.7rem;
+
+      .fab {
+        color: white;
+        padding: 7px;
+        text-decoration: none;
+
+        &:hover {
+          color: $primary-color;
+          @include button-transition;
+        }
+      }
+    }
+
+    .feedback {
+      top: 1.2rem;
+      position: absolute;
+      right: 5px;
+      a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+          color: $primary-color;
+          @include button-transition;
+        }
+      }
+    }
+
+    .agreements {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          color: $primary-color;
+          @include button-transition;
+        }
+      }
+
+      .disclaimer{
+          color: white;
+
+          span{
+              color: $primary-color;
+          }
+      }
+    }
+  }
+}

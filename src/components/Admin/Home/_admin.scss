@@ -1,0 +1,224 @@
+.home-admin {
+  width: 100%;
+
+  &-breadcrump {
+    position: absolute;
+    top: 4.5rem;
+    left: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+.dropbtn {
+  background-color: darkblue;
+  color: white;
+  padding: 6px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
+}
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  right: 1rem;
+  top: 5rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 5px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+.breadcrump {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.home-admin-form {
+  margin-top: 5rem;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+
+  .trailer-data {
+    max-width: 50%;
+    // display: flex;
+    // flex-direction: row;
+    @include button-transition;
+
+    @media screen and (max-width: 600px) {
+      & {
+        max-width: 100%;
+      }
+    }
+
+    .trailer-detail {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 20px 0 12px 0;
+
+      &-input {
+        margin-bottom: 15px;
+        width: calc(100% / 2 - 20px);
+
+        .detail {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 5px;
+        }
+        input {
+          height: 45px;
+          width: 100%;
+          outline: none;
+          font-size: 16px;
+          border-radius: 5px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+
+          &:focus,
+          &:valid {
+            border-color: #9b59b6;
+          }
+        }
+      }
+    }
+    form {
+      .trailer-submit {
+        height: 2.5rem;
+        margin: 1rem 0;
+        position: relative;
+        // left: 45%;
+        button {
+          height: 100%;
+          width: 100%;
+          border-radius: 5px;
+          padding: 0.4rem;
+          border: none;
+          color: #fff;
+          font-size: 18px;
+          font-weight: 500;
+          letter-spacing: 1px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+      }
+
+      .trailer-cancel{
+        @extend .trailer-submit;
+        background:linear-gradient(135deg, #71b7e6, #bb1111);
+      }
+    }
+  }
+
+  .trailer-data-list {
+    width: 46%;
+    position: relative;
+    border: 2px solid whitesmoke;
+    @include button-transition;
+
+    @media screen and (max-width: 600px) {
+      & {
+        width: 100%;
+      }
+    }
+
+    .trailer-table {
+      width: 100%;
+
+      tr {
+        &:hover {
+          background-color: $dark;
+        }
+      }
+      th {
+        font-size: medium;
+        font-style: bold;
+        color: $primary-color;
+      }
+      td {
+        i {
+          padding-right: 2px;
+
+          &:hover {
+            color: $primary-color;
+            @include button-transition;
+          }
+        }
+      }
+      td,
+      th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-admin-form {
+    flex-direction: column;
+    margin-top: 8rem;
+  }
+}
+
+.toggle-container {
+  position: absolute;
+  right: -0.5rem;
+  top: 20%;
+  transform: translate(-50%, -50%);
+
+  .toggle-btn {
+    width: 4rem;
+    height: 2rem;
+    background-color: grey;
+    border-radius: 30px;
+    padding: 5px;
+    @include button-transition;
+
+    .inner-circle {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: #fff;
+      border-radius: 50%;
+      @include button-transition;
+    }
+
+    &.active {
+      background: #00acee;
+      @include button-transition;
+
+      .inner-circle {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
