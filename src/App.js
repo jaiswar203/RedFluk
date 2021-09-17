@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import { HashRouter, Route} from 'react-router-dom';
 import { fetchSlider,fetchTrailer,fetchLastSlider, fetchLastTrailer } from './action/Trailer';
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
@@ -31,12 +31,11 @@ const App = () => {
     dispatch(getAnimeSeries())
   },[dispatch])
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/' component={UserRoute} />
-        <Route exact path='/admin' component={AdminRoute} />
-        </Switch>
-    </Router>
+    <HashRouter> 
+      {/* we use switch in this thats why we getting only one route at time */}
+        <Route  path='/' component={UserRoute} />
+        <Route  path='/admin' component={AdminRoute} />
+    </HashRouter>
   );
 };
 

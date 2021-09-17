@@ -17,7 +17,7 @@ const SciFI = () => {
 
     useEffect(()=>{
       if(page) dispatch(filterScifi(page))
-  },[page])
+  },[page,dispatch])
   return (
       <>
       <div className="main-movies">
@@ -38,7 +38,6 @@ const SciFI = () => {
           count={scifitotalPages}
           variant='outlined'
           page={Number(page) || 1}
-          variant='outlined'
           color='secondary'
           renderItem={(item)=>(
             <PaginationItem {...item} component={Link} to={`/movie/genre/scifi?page=${item.page}`} />

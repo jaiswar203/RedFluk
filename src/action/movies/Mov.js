@@ -1,5 +1,5 @@
 import * as api from '../../api/index'
-import { CREATE_MOV, DELETE_MOV, GET_ALL_MOV, GET_BY_SEARCH, GET_MOV, GET_MOV_BY_ID, UPDATE_MOV,START_LOADING,END_LOADING, DOWNLOAD_BY_ID } from '../../constants/actionTypes'
+import { CREATE_MOV, DELETE_MOV, GET_ALL_MOV, GET_BY_SEARCH, GET_MOV, GET_MOV_BY_ID, UPDATE_MOV,START_LOADING,END_LOADING } from '../../constants/actionTypes'
 
 export const getMov=()=>async(dispatch)=>{
     try {
@@ -76,14 +76,6 @@ export const getMovBySearch=(searchQuery)=>async(dispatch)=>{
                 dispatch({type:GET_BY_SEARCH,payload:{tvshow:data}})
             }
         })
-        // data.filter((i)=>{
-        //     if(i.datatype==='movie'){
-        //         dispatch({type:GET_BY_SEARCH,payload:{movie:data}})
-        //     }
-        //     if(i.datatype==='trend'){
-        //         dispatch({type:GET_BY_SEARCH,payload:{trend:data}})
-        //     }   
-        // })
         dispatch({type:END_LOADING})
     } catch (error) {
         console.log(error)

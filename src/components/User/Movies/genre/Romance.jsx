@@ -17,7 +17,7 @@ const Romance = () => {
 
     useEffect(()=>{
       if(page) dispatch(filterRomance(page))
-  },[page])
+  },[page,dispatch])
   return (
       <>
       <div className="main-movies">
@@ -38,7 +38,7 @@ const Romance = () => {
           count={romtotalPages}
           variant='outlined'
           page={Number(page) || 1}
-          variant='outlined'
+
           color='secondary'
           renderItem={(item)=>(
             <PaginationItem {...item} component={Link} to={`/movie/genre/romance?page=${item.page}`} />

@@ -1,6 +1,6 @@
 import React from 'react'
 import {useLocation,useHistory} from 'react-router-dom'
-import {Breadcrumbs as MUIBreadCrumbs,Link,Typography} from '@material-ui/core'
+import {Breadcrumbs as MUIBreadCrumbs,Link} from '@material-ui/core'
 
 const Breadcrump = (props) => {
     const {pathname}=useLocation()

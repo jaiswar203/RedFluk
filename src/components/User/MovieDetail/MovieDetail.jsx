@@ -9,7 +9,7 @@ const MovieDetail = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMoviesById(id));
-  }, [id]);
+  }, [id,dispatch]);
   
   if (!detail) return null;
 
@@ -112,34 +112,10 @@ const MovieDetail = () => {
         <h1>Download Now</h1>
       </div>
 
+      
       <div className="movies-links">
         <div className="movies-links-google">
           <span>Google Drive</span>
-          <div className="movies-links-link">
-            <a href={`https://google.com`}>
-              <button>
-                {" "}
-                <i className="fas fa-download"></i> 480p
-              </button>
-            </a>
-            <a href="/details">
-              <button>
-                {" "}
-                <i className="fas fa-download"></i> 720p
-              </button>
-            </a>
-            <a href="/details">
-              <button>
-                {" "}
-                <i className="fas fa-download"></i> 1080p
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="movies-links">
-        <div className="movies-links-google">
-          <span>Onedrive</span>
           <div className="movies-links-link">
             <Link to={`/download/trendmovies/${id}?quality=480p`}>
               <button>

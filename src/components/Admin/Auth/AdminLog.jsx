@@ -1,28 +1,25 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 
-import {useDispatch} from 'react-redux'
-import {useHistory} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { signin } from "../../../action/admin";
-import {Button} from '@material-ui/core'
 
 const AdminLog = () => {
-  const dispatch=useDispatch()
-    const history=useHistory()
-    const initialState={email:'',password:''}
-    const [form, setform] = useState(initialState)
+  const dispatch = useDispatch()
+  const initialState = { email: '', password: '' }
+  const [form, setform] = useState(initialState)
 
-    const handleSub=(e)=>{
-        e.preventDefault();
-        dispatch(signin(form))
-    }
+  const handleSub = (e) => {
+    e.preventDefault();
+    dispatch(signin(form))
+  }
 
-    const handleChange=(e)=>{
-        setform({...form,[e.target.name]:e.target.value})
-    }
-    
-    if(signin.status===400){
-      console.log('enter correct pass')
-    }
+  const handleChange = (e) => {
+    setform({ ...form, [e.target.name]: e.target.value })
+  }
+
+  if (signin.status === 400) {
+    console.log('enter correct pass')
+  }
   return (
     <>
       <div className="log-container">
@@ -40,7 +37,7 @@ const AdminLog = () => {
               <input type="password" name="password" onChange={handleChange} placeholder="Password" required />
             </div>
             <div className="row button">
-            <button type="submit">Login</button>
+              <button type="submit">Login</button>
             </div>
           </form>
         </div>

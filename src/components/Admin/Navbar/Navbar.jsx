@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useRouteMatch, useHistory,useLocation } from "react-router-dom";
+import { Link, useHistory,useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import AdminNav from "./script";
 import decode from 'jwt-decode'
@@ -16,7 +16,9 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location=useLocation()
-  const { url } = useRouteMatch();
+  const url='/admin'
+  
+  console.log(url)
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("Adminprofile"))
     );
@@ -37,7 +39,7 @@ const Navbar = () => {
       const decodedToken=decode(token)
       if(decodedToken.exp * 1000 < new Date().getTime()) logout()
 
-      // setUser(JSON.parse(localStorage.getItem('profile')))
+      
     }
   }, [location]);
 
@@ -62,15 +64,6 @@ const Navbar = () => {
         <Link to={`${url}/tvshow`} className="admin-SideNav-link">
           Tv Shows
         </Link>
-        {/* <Link to={`${url}/animated`} className="admin-SideNav-link">
-          Animated Movie
-        </Link>
-        <Link to={`${url}/animatedweb`} className="admin-SideNav-link">
-          Animated Show
-        </Link> */}
-        {/* <Link to={ `${url}/signin`}>
-          { user ? history.push('/admin') : history.push('/admin/signin')}
-        </Link> */}
       </div>
       <header id="admin-main" className="admin-header">
         <div className="admin-btn" onClick={openSideNav}>
@@ -81,7 +74,7 @@ const Navbar = () => {
         </div>
         <nav className="admin-nav">
           <div className="admin-nav-user-detail">
-            <h5>{user.result ? user.result.name : "Name"}</h5>
+            <h5>{user?.result ? user?.result?.name : "Name"}</h5>
           </div>
           <div className="admin-nav-userid" onClick={logout}>
             <i class="fas fa-sign-out-alt"></i>
@@ -128,12 +121,6 @@ const Navbar = () => {
 
               <Link className="mob-admin-nav-item-links" to={`${url}/tvshows`}>
                 Tv Shows 
-              </Link>
-            </li>
-            <li>
-
-              <Link className="mob-admin-nav-item-links" to={`${url}/animated`}>
-                Animated
               </Link>
             </li>
 

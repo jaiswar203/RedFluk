@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react'
-import { useHistory,Route, Redirect } from 'react-router-dom'
+import React,{useState} from 'react'
+import { useHistory } from 'react-router-dom'
 
 const RegLog = () => {
     const [data, setData] = useState({
@@ -18,7 +18,7 @@ const RegLog = () => {
             history.push('/')
         }else{
             localStorage.setItem('SupAd',JSON.stringify({data}))
-            window.location.href='/admin/signup'
+            window.location.href='#/admin/signup'
             
         }
     }

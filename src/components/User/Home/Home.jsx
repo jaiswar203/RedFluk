@@ -4,17 +4,14 @@ import Card from "./Cards/Card";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const trailerData=useSelector((state)=>state.trailer)
-  const movieData=useSelector((state)=>state)
+  const trailerData = useSelector((state) => state.trailer)
   return (
     <>
-    {trailerData.map((data,i)=>i===0 ? (
-      <Carousel data={data} key={data._id} />
-    ): null)}
+      {trailerData.map((data, i) => i === 0 ? (
+        <Carousel data={data} key={data._id} />
+      ) : null)}
       <main className="main">
-
-          <Card  />
-        
+        <Card />
       </main>
     </>
   );

@@ -19,7 +19,7 @@ function AdminHome(){
       
       const toggle=document.querySelector('.toggle-btn')
       const toggleActive=document.querySelector('.toggle-btn.active')
-      let showToggle=false
+  
       toggle.addEventListener('click',function(){
           toggle.classList.add('active')
       })

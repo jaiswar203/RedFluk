@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import { Link,useLocation } from "react-router-dom";
+import React, { useEffect} from "react";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Pagination from "./pagination";
 import Option from "../option/Option";
+import { getAllMov } from "../../../action/movies/Mov";
 
 
 function useQuery() {
@@ -10,24 +11,25 @@ function useQuery() {
 }
 
 const Movies = () => {
-  const { movies,isLoading } = useSelector((state) => state.mov);
-  const query=useQuery()
-  const dispatch=useDispatch()
+  const { movies } = useSelector((state) => state.mov);
+  const query = useQuery()
+  const dispatch = useDispatch()
   const page = query.get("page") || 1;
-  
-  useEffect(()=>{
-  },[dispatch])
+
+  useEffect(() => {
+    dispatch(getAllMov())  
+  }, [dispatch])
   return (
-      <>
+    <>
       <Option />
       <div className="main-movies">
         <div className="cards">
           {movies?.map((data) => (
-              <Link to={`/movdetails/${data._id}`}>
-            <div className="cards-poster" key={data._id}>
-                <img src={data.poster} alt={data.detailtitle}  />
-            </div>
-              </Link>
+            <Link to={`/movdetails/${data._id}`}>
+              <div className="cards-poster" key={data._id}>
+                <img src={data.poster} alt={data.detailtitle} />
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -35,7 +37,7 @@ const Movies = () => {
         <Pagination page={page} />
       </div>
     </>
-    
+
   );
 };
 

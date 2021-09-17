@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link,useRouteMatch } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import AdminHome from "./script";
 import Breadcrump from "./Breadcrump";
@@ -13,7 +12,6 @@ const Admin = () => {
   const [switchs, setSwitchs] = useState(false);
   const [sliderId, setSliderId] = useState(null)
   const [trailerId, setTrailerId] = useState(null)
-  const trailer=useSelector((state)=> trailerId ? state.trailer.find((d)=>d._id===trailerId) : null )
   useEffect(() => {
     AdminHome()
     

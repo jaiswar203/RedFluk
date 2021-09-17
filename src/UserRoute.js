@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, Switch,useLocation,BrowserRouter } from "react-router-dom";
+import {Route, Switch,useLocation ,HashRouter } from "react-router-dom";
 
 import Navbar from "./components/User/Navbar/Navbar";
 import Footer from "./components/User/Footer/Footer";
@@ -57,8 +57,9 @@ const UserRoute = () => {
     const paths = e===`${url}` || e===`${url}/movies` || e===`${url}/webseries` || e===`${url}/tvshow` || e===`${url}/animatedweb` || e===`${url}/animated`  || e===`${url}/trending` || e===`${url}/download`
     const Auths= e===`${url}/signin` || e===`${url}/signup` || e=== `${url}/pass`
     const Expaths= e===`${url}/mobtrailer`
+    console.log(pathname)
   return (
-    <BrowserRouter>
+    <HashRouter>
       {(paths || Auths || Expaths ? null : <Navbar />)}
       <Switch>
         <Route exact path="/" component={Home} />
@@ -108,7 +109,7 @@ const UserRoute = () => {
         {(paths || Auths || Expaths ? null : <Route component={Error404} />)}
       </Switch>
       {(paths || Auths || Expaths ? null : <Footer />)}
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

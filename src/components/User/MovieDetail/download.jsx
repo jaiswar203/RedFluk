@@ -35,7 +35,7 @@ const Download = () => {
             setTest(true)
         }
         ,[5000])
-    },[id])
+    },[id,dispatch])
 
     if(quality==='480p'){
         url=detail?.gdrive1 ;

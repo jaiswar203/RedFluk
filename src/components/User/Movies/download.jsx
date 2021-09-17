@@ -2,21 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import { getMovById } from '../../../action/movies/Mov';
-import {makeStyles} from '@material-ui/core/styles'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 function useQuery(){
     return new URLSearchParams(useLocation().search)
 }
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-      '& > * + *': {
-        marginLeft: theme.spacing(2),
-      },
-    },
-  }));
 
 const Download = () => {
     const { detail } = useSelector((state) => state.mov);

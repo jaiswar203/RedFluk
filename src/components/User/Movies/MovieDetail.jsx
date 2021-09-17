@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { CircularProgress } from "@material-ui/core";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getMov, getMovById } from "../../../action/movies/Mov";
+import { getMovById } from "../../../action/movies/Mov";
 
 const MovieDetail = () => {
-  const { detail } = useSelector((state) => state.mov);
+  const { detail,isLoading } = useSelector((state) => state.mov);
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMovById(id));
-  }, [id]);
+  }, [id,dispatch]);
 
 
   if (!detail) return null;
@@ -27,6 +28,12 @@ const MovieDetail = () => {
       let iframeSrc = iframe_vid.src;
       iframe_vid.src = iframeSrc;
     }
+  }
+
+  if(isLoading){
+    return (
+      <CircularProgress />
+    )
   }
   return (
     <>

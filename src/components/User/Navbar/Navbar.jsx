@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { a, useHistory, useLocation } from "react-router-dom";
 import { getMovBySearch } from "../../../action/movies/Mov";
 import Navbrs from "./script";
 
@@ -12,8 +12,6 @@ const Navbar = () => {
   const dispatch=useDispatch()
   const query = useQuery();
   const history=useHistory()
-  const page = query.get("page") || 1;
-  const searchQuery = query.get("searchQuery");
 
   const [search, setSearch] = useState("");
   useEffect(() => {
@@ -44,38 +42,33 @@ const Navbar = () => {
       <nav className="nav">
         <ul className="menu-nav">
           <li className="menu-nav_item">
-            <Link to="/" className="menu-nav_item-links">
+            <a href="#/" className="menu-nav_item-links">
               Home
-            </Link>
+            </a>
           </li>
           <li className="menu-nav_item">
-            <Link to="/movies" className="menu-nav_item-links">
+            <a href="#/movies" className="menu-nav_item-links">
               Movies
-            </Link>
+            </a>
           </li>
           <li className="menu-nav_item">
-            <Link to="/webshow" className="menu-nav_item-links">
+            <a href="#/webshow" className="menu-nav_item-links">
               Web Series
-            </Link>
+            </a>
           </li>
           <li className="menu-nav_item">
-            <Link to="/tvshow" className="menu-nav_item-links">
+            <a href="#/tvshow" className="menu-nav_item-links">
               Tv Shows
-            </Link>
+            </a>
           </li>
-          {/* <li className="menu-nav_item">
-            <Link to="/animated" className="menu-nav_item-links">
-              Animated
-            </Link>
-          </li> */}
         </ul>
       </nav>
       <div className="logo">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <a href="#/" style={{ textDecoration: "none" }}>
           <h3>
             RED<span>FLUK</span>
           </h3>
-        </Link>
+        </a>
       </div>
       <div className="search-btn">
         <span className="fa fa-search fa-lg search"></span>
@@ -96,7 +89,7 @@ const Navbar = () => {
         />
         <button type="submit" onClick={searchData} className="fas fa-search" />
       </form>
-      <form action="#" className="form1">
+      <form className="form1">
         <input
           name="search"
           value={search}

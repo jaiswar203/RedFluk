@@ -10,9 +10,6 @@ const Cards = ({ data, setData, currentId, setCurrentId }) => {
     gdrive1: "",
     gdrive2: "",
     gdrive3: "",
-    onedrive1: "",
-    onedrive2: "",
-    onedrive3: "",
     youtube: "",
     quality: "",
     screenshots: "",
@@ -50,9 +47,6 @@ const Cards = ({ data, setData, currentId, setCurrentId }) => {
       gdrive1: "",
       gdrive2: "",
       gdrive3: "",
-      onedrive1: "",
-      onedrive2: "",
-      onedrive3: "",
       youtube: "",
       quality: "",
       screenshots: "",
@@ -129,39 +123,7 @@ const Cards = ({ data, setData, currentId, setCurrentId }) => {
                   required
                 />
               </div>
-              <div className="trailer-detail-input">
-                <span className="detail">Onedrive(480p)</span>
-                <input
-                  type="text"
-                  placeholder="gdrive Link"
-                  value={movieData?.onedrive1}
-                  name="onedrive1"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="trailer-detail-input">
-                <span className="detail">Onedrive(720p)</span>
-                <input
-                  type="text"
-                  placeholder="ondedrive Link"
-                  value={movieData?.onedrive2}
-                  name="onedrive2"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="trailer-detail-input">
-                <span className="detail">Onedrive(1080p)</span>
-                <input
-                  type="text"
-                  placeholder="onedrive Link"
-                  name="onedrive3"
-                  value={movieData?.onedrive3}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+              
               <div className="trailer-detail-input">
                 <span className="detail">Youtube</span>
                 <input

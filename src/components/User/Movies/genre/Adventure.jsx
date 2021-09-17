@@ -17,7 +17,7 @@ const Adventure = () => {
 
     useEffect(()=>{
       if(page) dispatch(filterAdven(page))
-  },[page])
+  },[page,dispatch])
   return (
       <>
       <div className="main-movies">
@@ -38,7 +38,7 @@ const Adventure = () => {
           count={adventotalPages}
           variant='outlined'
           page={Number(page) || 1}
-          variant='outlined'
+
           color='secondary'
           renderItem={(item)=>(
             <PaginationItem {...item} component={Link} to={`/movie/genre/adventure?page=${item.page}`} />
